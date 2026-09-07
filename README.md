@@ -165,4 +165,3 @@ dbdoc/
 
 - 后端文档生成核心基于 [smallbun/screw](https://github.com/smallbun/screw)（Apache License 2.0）增强，遵循其原许可证。
 - 前端基于 [jimuqu-admin-ui](https://gitee.com/chengliang4810/jimuqu-admin-ui) 定制。
-- [SmartSQL](https://gitee.com/dotnetchina/SmartSQL) 的仓库呈现方式为本 README 提供了参考。
