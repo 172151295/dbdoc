@@ -1,0 +1,64 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.2.2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.18.0
+          cache: pnpm
+
+      - name: Calculate release version
+        run: echo "RELEASE_VERSION=v$(TZ=Asia/Shanghai git show -s --format=%cd --date=format-local:%Y.%m.%d $GITHUB_SHA)-${GITHUB_SHA:0:7}" >> "$GITHUB_ENV"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Unit tests
+        run: pnpm test:unit
+
+      - name: Production build
+        run: pnpm build
+
+      - name: Prepare release assets
+        run: |
+          mkdir release
+          cp LICENSE THIRD_PARTY_NOTICES.md dist/
+          tar -czf release/jimuqu-admin-ui-dist.tar.gz -C dist .
+          (cd dist && zip -qr ../release/jimuqu-admin-ui-dist.zip .)
+          git archive --format=zip --prefix=jimuqu-admin-ui/ -o release/jimuqu-admin-ui-source.zip HEAD
+          git archive --format=tar.gz --prefix=jimuqu-admin-ui/ -o release/jimuqu-admin-ui-source.tar.gz HEAD
+          cd release
+          sha256sum * > SHA256SUMS
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_VERSION }}
+          name: ${{ env.RELEASE_VERSION }}
+          target_commitish: ${{ github.sha }}
+          generate_release_notes: true
+          files: release/*

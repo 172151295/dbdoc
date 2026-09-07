@@ -1,0 +1,986 @@
+{
+  "gateway": {
+    "host": "127.0.0.1",
+    "port": 11435
+  },
+  "providers": {
+    "deepseek": {
+      "baseUrl": "https://api.deepseek.com/v1",
+      "apiKey": "sk-56f7ced31f8948648a8892d65f4caea8",
+      "type": "openai-compatible",
+      "completionPath": "/chat/completions",
+      "streamMode": "stream",
+      "enabled": true,
+      "models": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp",
+        "deepseek-v4-pro"
+      ]
+    },
+    "opencode-go": {
+      "baseUrl": "https://opencode.ai/zen/go/v1",
+      "apiKey": "sk-rV48PXZ1NvuquoCwxnKEdpnZvV4YChXKGJ16sjN6lzn1wmaHcogIlCuusZAFc0ac",
+      "type": "openai-compatible",
+      "completionPath": "/chat/completions",
+      "streamMode": "stream",
+      "enabled": true,
+      "models": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp",
+        "deepseek-v4-pro",
+        "glm-5",
+        "glm-5.1",
+        "glm-5.2",
+        "glm-5.3",
+        "glm-5.3-flash",
+        "gpt-5.6-luna",
+        "grok-4.5",
+        "grok-4.6",
+        "hy3",
+        "hy3-preview",
+        "hy4-preview",
+        "kimi-k2.5",
+        "kimi-k2.6",
+        "kimi-k2.7-code",
+        "kimi-k3",
+        "longcat-2.0",
+        "mimo-v2-omni",
+        "mimo-v2-pro",
+        "mimo-v2.5",
+        "mimo-v2.5-pro",
+        "minimax-m2.5",
+        "minimax-m2.7",
+        "minimax-m3",
+        "muse-spark-1.2-contributor",
+        "muse-spark-1.3-contributor",
+        "omen-alpha",
+        "qwen3.5-plus",
+        "qwen3.6-plus",
+        "qwen3.7-max",
+        "qwen3.7-plus",
+        "qwen3.8-flash",
+        "qwen3.8-max"
+      ]
+    },
+    "sensenova": {
+      "baseUrl": "https://token.sensenova.cn/v1",
+      "apiKey": "sk-D9d9UTt2zsYhnDV5agsRz568N9wnMGsf",
+      "type": "openai-compatible",
+      "completionPath": "/chat/completions",
+      "streamMode": "stream",
+      "enabled": true,
+      "models": [
+        "deepseek-v4-flash",
+        "deepseek-v4-pro",
+        "glm-5.2",
+        "kimi-k3",
+        "sensenova-6.7-flash-lite",
+        "sensenova-6.8-flash-lite",
+        "sensenova-u1-fast",
+        "sensenova-u1.5-lite"
+      ]
+    },
+    "commandcode": {
+      "streamMode": "stream",
+      "baseUrl": "https://api.commandcode.ai/provider",
+      "enabled": true,
+      "completionPath": "/v1/chat/completions",
+      "models": [
+        "MiniMaxAI/MiniMax-M2.5",
+        "MiniMaxAI/MiniMax-M2.7",
+        "MiniMaxAI/MiniMax-M3",
+        "Qwen/Qwen3.6-Max-Preview",
+        "Qwen/Qwen3.6-Plus",
+        "Qwen/Qwen3.7-Flash",
+        "Qwen/Qwen3.7-Max",
+        "Qwen/Qwen3.7-Plus",
+        "Qwen/Qwen3.8-27B",
+        "Qwen/Qwen3.8-Flash",
+        "Qwen/Qwen3.8-Max",
+        "Qwen/Qwen3.8-Max-0902",
+        "claude-fable-5",
+        "claude-fable-5-1",
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-7",
+        "claude-opus-4-8",
+        "claude-opus-5",
+        "claude-sonnet-4-6",
+        "claude-sonnet-5",
+        "deepseek/deepseek-v4-flash",
+        "deepseek/deepseek-v4-flash-fast",
+        "deepseek/deepseek-v4-flash-vision-exp",
+        "deepseek/deepseek-v4-pro",
+        "google/gemini-3.1-flash-lite",
+        "google/gemini-3.5-flash",
+        "google/gemini-3.5-flash-lite",
+        "google/gemini-3.6-flash",
+        "google/gemini-3.7-flash",
+        "google/gemini-3.8-flash",
+        "gpt-5.3-codex",
+        "gpt-5.4",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "meituan/LongCat-2.0:free",
+        "meta/muse-spark-1.1",
+        "meta/muse-spark-1.2",
+        "meta/muse-spark-1.2-contributor",
+        "meta/muse-spark-1.3",
+        "meta/muse-spark-1.3-contributor",
+        "moonshotai/Kimi-K2.5",
+        "moonshotai/Kimi-K2.6",
+        "moonshotai/Kimi-K2.7-Code",
+        "moonshotai/Kimi-K2.7-Code-Highspeed",
+        "moonshotai/Kimi-K3",
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "poolside/laguna-s-2.1-free",
+        "sakana/fugu-ultra",
+        "stepfun/Step-3.5-Flash",
+        "stepfun/Step-3.7-Flash",
+        "tencent/hy3-paid",
+        "tencent/hy4-preview",
+        "thinkingmachines/inkling",
+        "thinkingmachines/inkling-small",
+        "xai/grok-4.5",
+        "xai/grok-4.6",
+        "xiaomi/mimo-v2.5",
+        "xiaomi/mimo-v2.5-pro",
+        "z-ai/glm-5.3-flash",
+        "zai-org/GLM-5",
+        "zai-org/GLM-5.1",
+        "zai-org/GLM-5.2",
+        "zai-org/GLM-5.2-Fast",
+        "zai-org/GLM-5.3"
+      ],
+      "type": "openai-compatible",
+      "apiKey": "user_2oNe6noUVeQHtDZEujJ8sbHEWho6T2NKcVqmQrTohGvrhrJDxP9UgY8TVBbPk71bFaAPuqksKV2QvDUiNuMresA7"
+    },
+    "glm": {
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "apiKey": "1743a69ba0714587a279851206a72808.vic0QPGaOglY8bJw",
+      "type": "openai-compatible",
+      "completionPath": "/chat/completions",
+      "streamMode": "stream",
+      "enabled": true,
+      "models": [
+        "glm-4",
+        "glm-4-plus",
+        "glm-4-flash",
+        "glm-4-air",
+        "glm-4-0520",
+        "glm-3-turbo",
+        "glm-4.6v",
+        "glm-5",
+        "glm-5.1",
+        "glm-5.2",
+        "glm-5.3",
+        "glm-5.3-flash"
+      ]
+    }
+  },
+  "daoRoutes": {
+    "enabled": true,
+    "substituteEnabled": false,
+    "allowMcpTools": true,
+    "routes": {
+      "qwen3.5-plus": {
+        "provider": "opencode-go",
+        "model": "qwen3.5-plus",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "mimo-v2-pro": {
+        "provider": "opencode-go",
+        "model": "mimo-v2-pro",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "mimo-v2-omni": {
+        "provider": "opencode-go",
+        "model": "mimo-v2-omni",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "hy3": {
+        "provider": "opencode-go",
+        "model": "hy3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "hy3-preview": {
+        "provider": "opencode-go",
+        "model": "hy3-preview",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "sensenova-6.7-flash-lite": {
+        "provider": "sensenova",
+        "model": "sensenova-6.7-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_SENSENOVA_6.7_FLASH_LITE": {
+        "provider": "sensenova",
+        "model": "sensenova-6.7-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "sensenova-6.8-flash-lite": {
+        "provider": "sensenova",
+        "model": "sensenova-6.8-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_SENSENOVA_6.8_FLASH_LITE": {
+        "provider": "sensenova",
+        "model": "sensenova-6.8-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "sensenova-u1-fast": {
+        "provider": "sensenova",
+        "model": "sensenova-u1-fast",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_SENSENOVA_U1_FAST": {
+        "provider": "sensenova",
+        "model": "sensenova-u1-fast",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "sensenova-u1.5-lite": {
+        "provider": "sensenova",
+        "model": "sensenova-u1.5-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_SENSENOVA_U1.5_LITE": {
+        "provider": "sensenova",
+        "model": "sensenova-u1.5-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.6-luna": {
+        "provider": "commandcode",
+        "model": "gpt-5.6-luna",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.6_LUNA": {
+        "provider": "commandcode",
+        "model": "gpt-5.6-luna",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.8-Max": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.8-Max",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.8_MAX": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.8-Max",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.6-sol": {
+        "provider": "commandcode",
+        "model": "gpt-5.6-sol",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.6_SOL": {
+        "provider": "commandcode",
+        "model": "gpt-5.6-sol",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.6-terra": {
+        "provider": "commandcode",
+        "model": "gpt-5.6-terra",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.6_TERRA": {
+        "provider": "commandcode",
+        "model": "gpt-5.6-terra",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.5": {
+        "provider": "commandcode",
+        "model": "gpt-5.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.5": {
+        "provider": "commandcode",
+        "model": "gpt-5.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.4": {
+        "provider": "commandcode",
+        "model": "gpt-5.4",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.4": {
+        "provider": "commandcode",
+        "model": "gpt-5.4",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.3-codex": {
+        "provider": "commandcode",
+        "model": "gpt-5.3-codex",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.3_CODEX": {
+        "provider": "commandcode",
+        "model": "gpt-5.3-codex",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "gpt-5.4-mini": {
+        "provider": "commandcode",
+        "model": "gpt-5.4-mini",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GPT_5.4_MINI": {
+        "provider": "commandcode",
+        "model": "gpt-5.4-mini",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "deepseek/deepseek-v4-pro": {
+        "provider": "commandcode",
+        "model": "deepseek/deepseek-v4-pro",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_DEEPSEEK/DEEPSEEK_V4_PRO": {
+        "provider": "commandcode",
+        "model": "deepseek/deepseek-v4-pro",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "deepseek/deepseek-v4-flash": {
+        "provider": "commandcode",
+        "model": "deepseek/deepseek-v4-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_DEEPSEEK/DEEPSEEK_V4_FLASH": {
+        "provider": "commandcode",
+        "model": "deepseek/deepseek-v4-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "deepseek/deepseek-v4-flash-vision-exp": {
+        "provider": "commandcode",
+        "model": "deepseek/deepseek-v4-flash-vision-exp",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_DEEPSEEK/DEEPSEEK_V4_FLASH_VISION_EXP": {
+        "provider": "commandcode",
+        "model": "deepseek/deepseek-v4-flash-vision-exp",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "moonshotai/Kimi-K3": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MOONSHOTAI/KIMI_K3": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "moonshotai/Kimi-K2.7-Code": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.7-Code",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MOONSHOTAI/KIMI_K2.7_CODE": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.7-Code",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "moonshotai/Kimi-K2.7-Code-Highspeed": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.7-Code-Highspeed",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MOONSHOTAI/KIMI_K2.7_CODE_HIGHSPEED": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.7-Code-Highspeed",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "moonshotai/Kimi-K2.6": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.6",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MOONSHOTAI/KIMI_K2.6": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.6",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "moonshotai/Kimi-K2.5": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MOONSHOTAI/KIMI_K2.5": {
+        "provider": "commandcode",
+        "model": "moonshotai/Kimi-K2.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "z-ai/glm-5.3-flash": {
+        "provider": "commandcode",
+        "model": "z-ai/glm-5.3-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_Z_AI/GLM_5.3_FLASH": {
+        "provider": "commandcode",
+        "model": "z-ai/glm-5.3-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "zai-org/GLM-5.3": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_ZAI_ORG/GLM_5.3": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "zai-org/GLM-5.2": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.2",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_ZAI_ORG/GLM_5.2": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.2",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "zai-org/GLM-5.2-Fast": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.2-Fast",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_ZAI_ORG/GLM_5.2_FAST": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.2-Fast",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "zai-org/GLM-5.1": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.1",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_ZAI_ORG/GLM_5.1": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5.1",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "zai-org/GLM-5": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_ZAI_ORG/GLM_5": {
+        "provider": "commandcode",
+        "model": "zai-org/GLM-5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MiniMaxAI/MiniMax-M3": {
+        "provider": "commandcode",
+        "model": "MiniMaxAI/MiniMax-M3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MINIMAXAI/MINIMAX_M3": {
+        "provider": "commandcode",
+        "model": "MiniMaxAI/MiniMax-M3",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MiniMaxAI/MiniMax-M2.7": {
+        "provider": "commandcode",
+        "model": "MiniMaxAI/MiniMax-M2.7",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MINIMAXAI/MINIMAX_M2.7": {
+        "provider": "commandcode",
+        "model": "MiniMaxAI/MiniMax-M2.7",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "minimax/minimax-m3-free": {
+        "provider": "commandcode",
+        "model": "minimax/minimax-m3-free",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MINIMAX/MINIMAX_M3_FREE": {
+        "provider": "commandcode",
+        "model": "minimax/minimax-m3-free",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "minimax/minimax-m2.7-free": {
+        "provider": "commandcode",
+        "model": "minimax/minimax-m2.7-free",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MINIMAX/MINIMAX_M2.7_FREE": {
+        "provider": "commandcode",
+        "model": "minimax/minimax-m2.7-free",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MiniMaxAI/MiniMax-M2.5": {
+        "provider": "commandcode",
+        "model": "MiniMaxAI/MiniMax-M2.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_MINIMAXAI/MINIMAX_M2.5": {
+        "provider": "commandcode",
+        "model": "MiniMaxAI/MiniMax-M2.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "xiaomi/mimo-v2.5-pro": {
+        "provider": "commandcode",
+        "model": "xiaomi/mimo-v2.5-pro",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_XIAOMI/MIMO_V2.5_PRO": {
+        "provider": "commandcode",
+        "model": "xiaomi/mimo-v2.5-pro",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "xiaomi/mimo-v2.5": {
+        "provider": "commandcode",
+        "model": "xiaomi/mimo-v2.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_XIAOMI/MIMO_V2.5": {
+        "provider": "commandcode",
+        "model": "xiaomi/mimo-v2.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.8-27B": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.8-27B",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.8_27B": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.8-27B",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.8-Flash": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.8-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.8_FLASH": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.8-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.7-Max": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.7-Max",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.7_MAX": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.7-Max",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.7-Plus": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.7-Plus",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.7_PLUS": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.7-Plus",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.7-Flash": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.7-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.7_FLASH": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.7-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.6-Max-Preview": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.6-Max-Preview",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.6_MAX_PREVIEW": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.6-Max-Preview",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "Qwen/Qwen3.6-Plus": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.6-Plus",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_QWEN/QWEN3.6_PLUS": {
+        "provider": "commandcode",
+        "model": "Qwen/Qwen3.6-Plus",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "stepfun/Step-3.7-Flash": {
+        "provider": "commandcode",
+        "model": "stepfun/Step-3.7-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_STEPFUN/STEP_3.7_FLASH": {
+        "provider": "commandcode",
+        "model": "stepfun/Step-3.7-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "stepfun/Step-3.5-Flash": {
+        "provider": "commandcode",
+        "model": "stepfun/Step-3.5-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_STEPFUN/STEP_3.5_FLASH": {
+        "provider": "commandcode",
+        "model": "stepfun/Step-3.5-Flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "tencent/hy3-paid": {
+        "provider": "commandcode",
+        "model": "tencent/hy3-paid",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_TENCENT/HY3_PAID": {
+        "provider": "commandcode",
+        "model": "tencent/hy3-paid",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "tencent/hy4-preview": {
+        "provider": "commandcode",
+        "model": "tencent/hy4-preview",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_TENCENT/HY4_PREVIEW": {
+        "provider": "commandcode",
+        "model": "tencent/hy4-preview",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "google/gemini-3.7-flash": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.7-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GOOGLE/GEMINI_3.7_FLASH": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.7-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "google/gemini-3.6-flash": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.6-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GOOGLE/GEMINI_3.6_FLASH": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.6-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "google/gemini-3.5-flash": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.5-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GOOGLE/GEMINI_3.5_FLASH": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.5-flash",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "google/gemini-3.5-flash-lite": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.5-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GOOGLE/GEMINI_3.5_FLASH_LITE": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.5-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "google/gemini-3.1-flash-lite": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.1-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_GOOGLE/GEMINI_3.1_FLASH_LITE": {
+        "provider": "commandcode",
+        "model": "google/gemini-3.1-flash-lite",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "sakana/fugu-ultra": {
+        "provider": "commandcode",
+        "model": "sakana/fugu-ultra",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_SAKANA/FUGU_ULTRA": {
+        "provider": "commandcode",
+        "model": "sakana/fugu-ultra",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "nvidia/nemotron-3-ultra-550b-a55b": {
+        "provider": "commandcode",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_NVIDIA/NEMOTRON_3_ULTRA_550B_A55B": {
+        "provider": "commandcode",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "thinkingmachines/inkling": {
+        "provider": "commandcode",
+        "model": "thinkingmachines/inkling",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_THINKINGMACHINES/INKLING": {
+        "provider": "commandcode",
+        "model": "thinkingmachines/inkling",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "thinkingmachines/inkling-small": {
+        "provider": "commandcode",
+        "model": "thinkingmachines/inkling-small",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_THINKINGMACHINES/INKLING_SMALL": {
+        "provider": "commandcode",
+        "model": "thinkingmachines/inkling-small",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "poolside/laguna-s-2.1-free": {
+        "provider": "commandcode",
+        "model": "poolside/laguna-s-2.1-free",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_POOLSIDE/LAGUNA_S_2.1_FREE": {
+        "provider": "commandcode",
+        "model": "poolside/laguna-s-2.1-free",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "meta/muse-spark-1.1": {
+        "provider": "commandcode",
+        "model": "meta/muse-spark-1.1",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_META/MUSE_SPARK_1.1": {
+        "provider": "commandcode",
+        "model": "meta/muse-spark-1.1",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "meta/muse-spark-1.2": {
+        "provider": "commandcode",
+        "model": "meta/muse-spark-1.2",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_META/MUSE_SPARK_1.2": {
+        "provider": "commandcode",
+        "model": "meta/muse-spark-1.2",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "meta/muse-spark-1.2-contributor": {
+        "provider": "commandcode",
+        "model": "meta/muse-spark-1.2-contributor",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_META/MUSE_SPARK_1.2_CONTRIBUTOR": {
+        "provider": "commandcode",
+        "model": "meta/muse-spark-1.2-contributor",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "xai/grok-4.5": {
+        "provider": "commandcode",
+        "model": "xai/grok-4.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_XAI/GROK_4.5": {
+        "provider": "commandcode",
+        "model": "xai/grok-4.5",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "xai/grok-4.6": {
+        "provider": "commandcode",
+        "model": "xai/grok-4.6",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      },
+      "MODEL_XAI/GROK_4.6": {
+        "provider": "commandcode",
+        "model": "xai/grok-4.6",
+        "maxOutputTokens": 16384,
+        "thinkingEnabled": false
+      }
+    }
+  },
+  "_runtime": {
+    "ready": true,
+    "providerCount": 5,
+    "routeCount": 123,
+    "stats": {
+      "total": 122,
+      "routed": 103,
+      "fallbackRouted": 0,
+      "passthru": 0,
+      "errorFallback": 0,
+      "errors": 19
+    }
+  },
+  "_modules": {
+    "budget": {
+      "encoder": "ratio",
+      "encoderName": "loaded",
+      "defaultBudget": {
+        "maxContextTokens": 128000,
+        "maxOutputTokens": 32768,
+        "historyBudgetRatio": 0.6,
+        "toolsBudgetRatio": 0.15,
+        "systemBudgetRatio": 0.1,
+        "reserveRatio": 0.15,
+        "maxToolDescriptionTokens": 512,
+        "maxToolSchemaTokens": 2048,
+        "compactSchema": true,
+        "stripDocFields": true,
+        "truncateDescriptions": true,
+        "encoder": "o200k_base"
+      }
+    },
+    "adapters": {
+      "protocols": [
+        "openai-chat",
+        "anthropic",
+        "openai-responses"
+      ],
+      "modelInfoCache": 0
+    },
+    "resilience": {
+      "autoContinue": true,
+      "maxAutoContinue": 3,
+      "retryOnRefusal": true,
+      "maxRefusalRetries": 1,
+      "downgradeThinking": true,
+      "retryOn429": true,
+      "max429Retries": 2,
+      "retryOnContextErr": true,
+      "maxContextRetries": 1,
+      "backoff": {
+        "baseMs": 1000,
+        "maxMs": 30000,
+        "maxRetries": 3,
+        "jitterRatio": 0.1
+      }
+    }
+  }
+}

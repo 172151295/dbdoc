@@ -1,0 +1,22 @@
+{
+  "root": "Root",
+  "system": {
+    "root": "System",
+    "user": "User",
+    "role": "Role",
+    "menu": "Menu",
+    "dept": "Department",
+    "post": "Post",
+    "dict": "Dictionary",
+    "config": "Parameter Settings",
+    "notice": "Notifications",
+    "oss": "File",
+    "client": "Client"
+  },
+  "monitor": {
+    "root": "System Monitoring",
+    "online": "Online Users",
+    "operationLog": "Operation Log",
+    "loginLog": "Login Log"
+  }
+}

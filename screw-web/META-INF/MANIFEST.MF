@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: Highgo Database JDBC Driver
+Bundle-License: BSD-2-Clause
+Automatic-Module-Name: com.highgo.jdbc.jdbc
+Implementation-Version: 6.2.0-SNAPSHOT
+Specification-Vendor: Oracle Corporation
+Specification-Title: JDBC
+Implementation-Vendor-Id: com.highgo.jdbc
+Specification-Version: 4.2
+Implementation-Vendor: Highgo Database Tool Group
+Main-Class: com.highgo.jdbc.util.PGJDBCMain
+

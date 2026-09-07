@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "codeLogin": "验证码登录",
+    "qrcodeLogin": "二维码登录",
+    "forgetPassword": "忘记密码",
+    "oauthLogin": "第三方登录",
+    "profile": "个人中心"
+  },
+  "dashboard": {
+    "title": "概览",
+    "analytics": "概览",
+    "workspace": "工作台"
+  },
+  "project": {
+    "about": "关于",
+    "document": "文档"
+  }
+}

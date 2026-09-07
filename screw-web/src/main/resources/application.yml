@@ -1,0 +1,42 @@
+server:
+  port: 8760
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: screw-web
+  # H2 文件型数据库：数据保存在 data/screwweb.mv.db，重启不丢失
+  datasource:
+    url: jdbc:h2:file:./data/screwweb;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# 连接密码加密密钥（生产环境请通过环境变量覆盖）
+screw:
+  security:
+    aes-key: ${SCREW_AES_KEY:9f5c3a1e7b2d4f6a8c0e1b3d5f7a9c2e}
+    # 与 jimuqu-admin-ui .env 的 VITE_GLOB_RSA_* 配对的请求加解密 RSA 对
+    # rsa-private-key: 后端解密请求 encrypt-key 头(PKCS1v1.5) 用
+    # rsa-public-key:  后端若加密响应时用公钥(本项目默认不加密响应 前端仅在有 encrypt-key 头时才解密)
+    rsa-private-key: ${SCREW_RSA_PRIVATE_KEY:MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCdoLnMd8Vy6RPlL0HLwOAb5Z7bFg2xdjayVKvKHBFR0dmETxakDrv5sLF/U3/gxsmoU0zonNsy1Zohz4caQ3rKgHIlNBIy+X8QdBTBMBl7nW6zwHdlS40xQJL6aGP5FCDz1d7IBjqxXNDduOSq38imvsdLI58dHZ4fhvfHqWREFjhNXmmbw9EB9qXrFOr+lmfLtEE4JOEZGOWpbTFjOeZEscrPKdpxQXDDrh7LfZAwVNgbZHleCf+JHbYERDOzyBXOH4pKcBSRvREf7k/p3LxmDlvvMQ4Rg2vUHvNUDNuO/d1fyeucrbIhiwcGu2bQ2KFLGMoujXYTTop6H6TlrY5RAgMBAAECggEALYtbI/EXY/Rkgzv8TtsT5fuawsLEghoeA7jjSiqB9pojt08Cw7ReK+8Z2ihOMqw9aB1pg2yPCUkel9ZWuwf0Wr5yPL2m5IOiayafOJKlSkpayiU6WlJSIYD+9sti130xaELLdBAYtVaUIvxhVd4DI+rLurI4Lzl3jrR4s4AGMIWm+TAjnRyoW8AyG40nbQkOYCHmNsS01zWByAIxjbBbCu/zZ5LRh27AEZMs3LAYlutmUXcV8nBLrXnbZQ+Ly3wwY0dHjj5yDDbUN4Fly8U0EsDknA5S++BJezVtmSitbgU1pbZYa1/qFOMMWhJXixI9Bqn8gu0iPSARo8zul3lCYQKBgQDIXZ97YS/x4Qe6vNhfKdYL0WL24Z1zVaDqgmnQJynRYJgBX24UDufJ1Bu6iTwWYAfZ1WluUqnbzPhas/Cyq9PAgP9FN/LmHDkwM32YtawYj3WVI//kLR0ZZdtCkzX0oVL/EdV+Df2LyEiahRFigSrjBB3ofMZVFZylQcoXGbsK8wKBgQDJZTZ71tst2+x1yHlJ0+ExIgGaeI7Xs4nQJAoQcgF4kHUXUEjmlWUfhdybM+mVZ/yQbncafWS1H65EggmD6QXNQEKf2MMLfUpVwI/mgV8KQq706JH5aNgHABIJdV8WNY3VZXp0rBn1ZfPHgLVZ5Vbk++9EJ/e6bkB1ceQtJ+FKqwKBgQC2TmlDq4QiQqvzvsvomnpFOnkfRN0sCadmeM6qNFgaSBdGeHwCCCXiP/oS2bcwbKP4EfPiC5i9g1wdu0ewaiM7LqQVaPi7YsauEsueXP5/QlisIJs+E8Y8S68afjNDqF2J88Ia9cPSoaNd5OGSjRBmimJkHNOgqw9iVd/48NJ8/QKBgHTRLn86qzu4ezn+pMu8CL01GnT9RO29CE0g+m17k3rZX/G78e097sAQJ1wnCnBNNuSYDqHg5g9hZvX574cCHQlnIr4RP2FktT90SIPNutD6yPzqAfIHbHbzBYNS/2qkebaz/Am84fnDv1mTQJ36NyLvN2PzQvByjxUQkOfYYAetAoGBAJ4SOfW751gvbMtQrmTR6Qx44SQsxjnzXrWwI7jNHONrHz6tea1VFeRkNl54NjHf64HxCvPRIQJHqlwE1AZ+OkJ6PcIy2Ln38QxGHDtInH/eCXb7pT68yhTZwRoc9yewnPIR/d7NyNecGM8a4yGkCwlsWRPvN/QPUTfTqeMD9h+U}
+    rsa-public-key: ${SCREW_RSA_PUBLIC_KEY:MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnaC5zHfFcukT5S9By8DgG+We2xYNsXY2slSryhwRUdHZhE8WpA67+bCxf1N/4MbJqFNM6JzbMtWaIc+HGkN6yoByJTQSMvl/EHQUwTAZe51us8B3ZUuNMUCS+mhj+RQg89XeyAY6sVzQ3bjkqt/Ipr7HSyOfHR2eH4b3x6lkRBY4TV5pm8PRAfal6xTq/pZny7RBOCThGRjlqW0xYznmRLHKzynacUFww64ey32QMFTYG2R5Xgn/iR22BEQzs8gVzh+KSnAUkb0RH+5P6dy8Zg5b7zEOEYNr1B7zVAzbjv3dX8nrnK2yIYsHBrtm0NihSxjKLo12E06Keh+k5a2OUQIDAQAB}
+
+logging:
+  level:
+    cn.smallbun.screw: info
