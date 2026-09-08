@@ -198,16 +198,22 @@ public class DdlService {
             ? "DROP VIEW " + view.tableName + ";\n"
             : "DROP VIEW IF EXISTS " + view.tableName + ";\n");
 
-        // 尝试获取视图定义（MySQL 用 SHOW CREATE VIEW；PG/瀚高用 information_schema；Oracle 用 ALL_VIEWS.TEXT）
+        // 尝试获取视图定义（MySQL 用 SHOW CREATE VIEW；Oracle 优先 GET_DDL 回退 ALL_VIEWS.TEXT；PG/瀚高用 information_schema）
         String viewDef = getViewDefinition(conn, catalog, schema, view.tableName, isMysql, isOracle);
         if (viewDef != null && !viewDef.isEmpty()) {
             if (isMysql) {
                 // SHOW CREATE VIEW 返回完整语句，去掉 DEFINER 避免目标库权限问题
                 writer.write(viewDef.replaceAll("(?i)DEFINER=`[^`]+`@`[^`]+`\\s+", ""));
             } else {
-                // PG/瀚高/Oracle 返回的是 SELECT 查询体，需补 CREATE VIEW 头
-                writer.write("CREATE OR REPLACE VIEW " + view.tableName + " AS\n");
-                writer.write(viewDef.trim());
+                String trimmed = viewDef.trim();
+                if (trimmed.toUpperCase(Locale.ROOT).startsWith("CREATE")) {
+                    // Oracle GET_DDL 返回完整 CREATE VIEW 语句，直接回放
+                    writer.write(trimmed);
+                } else {
+                    // PG/瀚高返回的是 SELECT 查询体，需补 CREATE VIEW 头
+                    writer.write("CREATE OR REPLACE VIEW " + view.tableName + " AS\n");
+                    writer.write(trimmed);
+                }
             }
             if (!viewDef.trim().endsWith(";")) {
                 writer.write(";");
@@ -387,34 +393,41 @@ public class DdlService {
                  "SELECT DBMS_METADATA.GET_DDL(?, ?, ?) FROM DUAL")) {
             ps.setString(1, owner);
             getDdl.setString(3, owner);
+            // 先收集对象清单并关闭列表游标，再逐个 GET_DDL：
+            // GET_DDL 返回 CLOB，与另一条未读完的游标交叉执行存在流失效风险
+            List<String[]> objects = new ArrayList<>();
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    String name = rs.getString("OBJECT_NAME");
-                    String type = rs.getString("OBJECT_TYPE");
-                    writer.write("\n-- " + type + ": " + name + "\n");
-                    boolean ok = false;
-                    try {
-                        getDdl.setString(1, type);
-                        getDdl.setString(2, name);
-                        try (ResultSet rs2 = getDdl.executeQuery()) {
-                            if (rs2.next()) {
-                                String def = rs2.getString(1);
-                                if (def != null && !def.isEmpty()) {
-                                    writer.write(def.trim());
-                                    if (!def.trim().endsWith(";")) {
-                                        writer.write(";");
-                                    }
-                                    writer.write("\n");
-                                    ok = true;
+                    objects.add(new String[]{rs.getString("OBJECT_TYPE"),
+                        rs.getString("OBJECT_NAME")});
+                }
+            }
+            for (String[] obj : objects) {
+                String type = obj[0];
+                String name = obj[1];
+                writer.write("\n-- " + type + ": " + name + "\n");
+                boolean ok = false;
+                try {
+                    getDdl.setString(1, type);
+                    getDdl.setString(2, name);
+                    try (ResultSet rs2 = getDdl.executeQuery()) {
+                        if (rs2.next()) {
+                            String def = rs2.getString(1);
+                            if (def != null && !def.isEmpty()) {
+                                writer.write(def.trim());
+                                if (!def.trim().endsWith(";")) {
+                                    writer.write(";");
                                 }
+                                writer.write("\n");
+                                ok = true;
                             }
                         }
-                    } catch (SQLException e) {
-                        log.debug("GET_DDL 失败 ({} {}): {}", type, name, e.getMessage());
                     }
-                    if (!ok) {
-                        writer.write("-- 定义获取失败，需通过 DBMS_METADATA.GET_DDL 手动导出\n");
-                    }
+                } catch (SQLException e) {
+                    log.debug("GET_DDL 失败 ({} {}): {}", type, name, e.getMessage());
+                }
+                if (!ok) {
+                    writer.write("-- 定义获取失败，需通过 DBMS_METADATA.GET_DDL 手动导出\n");
                 }
             }
         }
@@ -512,9 +525,11 @@ public class DdlService {
                     col.columnType += ")";
                 }
                 col.isNullable = rs.getString("IS_NULLABLE");
-                col.columnDefault = rs.getString("COLUMN_DEF");
                 col.remarks = rs.getString("REMARKS");
                 col.autoIncrement = rs.getString("IS_AUTOINCREMENT");
+                // Oracle：COLUMN_DEF 映射 ALL_TAB_COLS.DATA_DEFAULT（LONG 流式列）。
+                // 流式列必须在行内最后读取，先读它再取同行其它列会抛 ORA-17027（流已被关闭）
+                col.columnDefault = rs.getString("COLUMN_DEF");
                 result.add(col);
             }
         }
@@ -550,12 +565,36 @@ public class DdlService {
             }
             return null;
         }
-        // Oracle：ALL_VIEWS.TEXT（LONG 列，JDBC getString 可读）返回 SELECT 查询体
+        // Oracle：优先 DBMS_METADATA.GET_DDL（CLOB 列，getString 行为稳定，
+        // 返回完整可回放的 CREATE VIEW 语句）；ALL_VIEWS.TEXT 为 LONG 流式列
+        //（ORA-17027 风险），仅作回退
         if (isOracle) {
+            String owner;
+            try {
+                owner = schema != null ? schema.toUpperCase(Locale.ROOT)
+                    : conn.getMetaData().getUserName();
+            } catch (SQLException e) {
+                log.debug("获取 owner 失败: {}", e.getMessage());
+                return null;
+            }
+            try (PreparedStatement ps = conn.prepareStatement(
+                "SELECT DBMS_METADATA.GET_DDL('VIEW', ?, ?) FROM DUAL")) {
+                ps.setString(1, viewName.toUpperCase(Locale.ROOT));
+                ps.setString(2, owner);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        String def = rs.getString(1);
+                        if (def != null && !def.isEmpty()) {
+                            return def.trim();
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                log.debug("获取视图定义失败 (GET_DDL): {}", e.getMessage());
+            }
             try (PreparedStatement ps = conn.prepareStatement(
                 "SELECT TEXT FROM ALL_VIEWS WHERE OWNER = ? AND VIEW_NAME = ?")) {
-                ps.setString(1, schema != null ? schema.toUpperCase(Locale.ROOT)
-                    : conn.getMetaData().getUserName());
+                ps.setString(1, owner);
                 ps.setString(2, viewName.toUpperCase(Locale.ROOT));
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
