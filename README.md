@@ -1,7 +1,10 @@
+<div align="center">
+
 # DBDoc
 
-> **⚡ 数据库表结构文档生成平台** —— 连接业务库，一键生成表结构文档
-> 基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 平台化实现
+**⚡ 数据库表结构文档生成平台** —— 连接业务库，一键生成表结构文档
+
+_基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 平台化实现_
 
 ![Java](https://img.shields.io/badge/Java-17-blue.svg?logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-6DB33F.svg?logo=springboot)
@@ -10,11 +13,15 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6.svg?logo=typescript)
 ![License](https://img.shields.io/badge/License-Apache--2.0-red.svg?logo=apache)
 
+**数据库支持**
+
 ![MySQL](https://img.shields.io/badge/MySQL-✅-4479A1.svg?logo=mysql)
 ![Oracle](https://img.shields.io/badge/Oracle-✅-F80000.svg?logo=oracle)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-✅-4169E1.svg?logo=postgresql)
 ![达梦](https://img.shields.io/badge/达梦-✅-2151A0.svg)
 ![瀚高](https://img.shields.io/badge/瀚高HighGo-✅-1E5C97.svg)
+
+</div>
 
 ---
 
