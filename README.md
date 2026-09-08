@@ -1,4 +1,4 @@
-<div align="center">
+
 
 # DBDoc
 
@@ -6,9 +6,9 @@
 
 _基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 平台化实现_
 
-</div>
+---
 
-<div align="center">
+## 概览
 
 ![Java](https://img.shields.io/badge/Java-17-blue.svg?logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-6DB33F.svg?logo=springboot)
@@ -17,16 +17,14 @@ _基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6.svg?logo=typescript)
 ![License](https://img.shields.io/badge/License-Apache--2.0-red.svg?logo=apache)
 
-![MySQL](https://img.shields.io/badge/MySQL-✅-4479A1.svg?logo=mysql&logoColor=4479A1)
-![Oracle](https://img.shields.io/badge/Oracle-✅-F80000.svg?logo=oracle&logoColor=F80000)
+**数据库支持:**
+![MySQL](https://img.shields.io/badge/MySQL-✅-4479A1.svg?logo=mysql)
+![Oracle](https://img.shields.io/badge/Oracle-✅-F80000.svg?logo=oracle)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-✅-4169E1.svg?logo=postgresql)
 ![达梦](https://img.shields.io/badge/达梦-✅-2151A0.svg)
 ![瀚高](https://img.shields.io/badge/瀚高HighGo-✅-1E5C97.svg)
 
-[![GitHub](https://img.shields.io/badge/GitHub-172151295%2Fdbdoc-181717?logo=github)](https://github.com/172151295/dbdoc)
-[![Gitee](https://img.shields.io/badge/Gitee-zhang0shan%2Fdbdoc-C71D23?logo=gitee)](https://gitee.com/zhang0shan/dbdoc)
-
-</div>
+---
 
 ## 预览
 
@@ -36,27 +34,33 @@ _基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 
 | **连接管理** | **对象导出** |
 | ![连接管理](docs/screenshots/connections.jpeg) | ![对象导出](docs/screenshots/export.jpeg) |
 
+---
+
 ## 🚩 项目介绍
 
-DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**：业务人员也能自助完成数据库连接配置 → 对象选择 → 文档导出的全流程。核心引擎在 [smallbun/screw](https://github.com/smallbun/screw) 基础上深度增强——Excel 单/多 Sheet 双模式、Word 模板九列对齐、视图（VIEW）文档支持、达梦 / 瀚高等国产数据库方言，并对国产化环境实测验证。
+DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**：业务人员也能自助完成数据库连接配置 → 对象选择 → 文档导出的全流程。
+
+核心引擎在 [smallbun/screw](https://github.com/smallbun/screw) 基础上深度增强——Excel 单/多 Sheet 双模式、Word 模板九列对齐、视图（VIEW）文档支持、达梦 / 瀚高等国产数据库方言，并对国产化环境实测验证。
 
 > 🚀 一站式完成：连接管理 · 对象导出 · 元数据浏览 · 代码生成 · 库表对比
 
+---
+
 ## 📖 主要功能
 
-#### 文档内容包含什么？
+### 文档内容包含什么？
 
 - `表` 序号 | 列名 | 主键 | 自增 | 数据类型 | 长度 | 允许NULL | 默认值 | 备注说明
 - `视图` 视图 SQL 脚本与字段说明
 - `索引/主键` 表索引与主外键关系
 
-#### 支持导出哪些文档格式？
+### 支持导出哪些文档格式？
 
 | 📄 Word | 📊 Excel | 📝 Markdown | 🌐 HTML |
 |:---:|:---:|:---:|:---:|
 | 单 Sheet / 多 Sheet | 九列对齐模板 | Gitee/GitHub 友好 | 单文件离线可查 |
 
-#### 平台功能模块
+### 平台功能模块
 
 | 模块 | 能力 |
 |---|---|
@@ -66,6 +70,8 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
 | **常用工具** | 实体/SQL 代码生成、双库结构对比（差异+同步）、DDL 预览、表关系图 |
 | **系统底座** | 登录认证（BCrypt + Token）、个人中心、RSA/AES 传输加密、前后端单 jar 部署 |
 
+---
+
 ## 💎 数据库支持
 
 - ✅ MySQL（实测验证）
@@ -74,6 +80,8 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
 - ✅ 达梦 DM（国产化 · 实测验证）
 - ✅ 瀚高 HighGo（国产化 · 实测验证）
 - ✅ SQL Server / SQLite（引擎级支持，随核心库能力）
+
+---
 
 ## 架构总览
 
@@ -94,6 +102,8 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
                                               │  MySQL/Oracle/达梦… │
                                               └────────────────────┘
 ```
+
+---
 
 ## 快速开始
 
@@ -135,6 +145,8 @@ java -jar target/screw-web-*.jar
 
 `admin / admin123`（首次登录后请立即在「个人中心 → 安全设置」修改密码）
 
+---
+
 ## 目录结构
 
 ```
@@ -150,6 +162,8 @@ dbdoc/
 └── jimuqu-admin-ui/         # Vue3 前端
 ```
 
+---
+
 ## 安全说明（部署必读）
 
 - **传输加密**：前端生产构建默认开启 `VITE_GLOB_ENABLE_ENCRYPT=true`，对敏感接口（如修改密码）使用
@@ -160,6 +174,8 @@ dbdoc/
   - 或重新生成密钥对并同步替换前后端两侧
 - **数据目录**：`screw-web/data/`（H2 业务数据，含业务库连接信息）已在 `.gitignore` 中排除，请勿提交。
 - **H2 控制台**：生产环境建议关闭（`spring.h2.console.enabled=false`）。
+
+---
 
 ## 致谢 / 来源声明
 
