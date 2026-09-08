@@ -1,14 +1,7 @@
-
-
 # DBDoc
 
-**⚡ 数据库表结构文档生成平台 · 连接业务库，一键生成表结构文档**
-
-_基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 平台化实现_
-
----
-
-## 概览
+> **⚡ 数据库表结构文档生成平台** —— 连接业务库，一键生成表结构文档
+> 基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 平台化实现
 
 ![Java](https://img.shields.io/badge/Java-17-blue.svg?logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-6DB33F.svg?logo=springboot)
@@ -17,7 +10,6 @@ _基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6.svg?logo=typescript)
 ![License](https://img.shields.io/badge/License-Apache--2.0-red.svg?logo=apache)
 
-**数据库支持:**
 ![MySQL](https://img.shields.io/badge/MySQL-✅-4479A1.svg?logo=mysql)
 ![Oracle](https://img.shields.io/badge/Oracle-✅-F80000.svg?logo=oracle)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-✅-4169E1.svg?logo=postgresql)
@@ -26,12 +18,14 @@ _基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 
 
 ---
 
-## 预览
+## 🖼 界面预览
 
 | 登录 | 概览 |
 |:---:|:---:|
 | ![登录页](docs/screenshots/login.jpeg) | ![概览](docs/screenshots/dashboard.jpeg) |
-| **连接管理** | **对象导出** |
+
+| 连接管理 | 对象导出 |
+|:---:|:---:|
 | ![连接管理](docs/screenshots/connections.jpeg) | ![对象导出](docs/screenshots/export.jpeg) |
 
 ---
@@ -40,7 +34,12 @@ _基于 [smallbun/screw](https://github.com/smallbun/screw) 增强引擎的 Web 
 
 DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**：业务人员也能自助完成数据库连接配置 → 对象选择 → 文档导出的全流程。
 
-核心引擎在 [smallbun/screw](https://github.com/smallbun/screw) 基础上深度增强——Excel 单/多 Sheet 双模式、Word 模板九列对齐、视图（VIEW）文档支持、达梦 / 瀚高等国产数据库方言，并对国产化环境实测验证。
+核心引擎在 [smallbun/screw](https://github.com/smallbun/screw) 基础上深度增强：
+
+- Excel 单 / 多 Sheet 双模式
+- Word 模板九列对齐
+- 视图（VIEW）文档支持
+- 达梦 / 瀚高等国产数据库方言，国产化环境实测验证
 
 > 🚀 一站式完成：连接管理 · 对象导出 · 元数据浏览 · 代码生成 · 库表对比
 
@@ -50,9 +49,9 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
 
 ### 文档内容包含什么？
 
-- `表` 序号 | 列名 | 主键 | 自增 | 数据类型 | 长度 | 允许NULL | 默认值 | 备注说明
-- `视图` 视图 SQL 脚本与字段说明
-- `索引/主键` 表索引与主外键关系
+- `表`：序号 · 列名 · 主键 · 自增 · 数据类型 · 长度 · 允许NULL · 默认值 · 备注说明
+- `视图`：视图 SQL 脚本与字段说明
+- `索引/主键`：表索引与主外键关系
 
 ### 支持导出哪些文档格式？
 
@@ -60,7 +59,7 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
 |:---:|:---:|:---:|:---:|
 | 单 Sheet / 多 Sheet | 九列对齐模板 | Gitee/GitHub 友好 | 单文件离线可查 |
 
-### 平台功能模块
+### 平台功能矩阵
 
 | 模块 | 能力 |
 |---|---|
@@ -74,16 +73,18 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
 
 ## 💎 数据库支持
 
-- ✅ MySQL（实测验证）
-- ✅ Oracle
-- ✅ PostgreSQL
-- ✅ 达梦 DM（国产化 · 实测验证）
-- ✅ 瀚高 HighGo（国产化 · 实测验证）
-- ✅ SQL Server / SQLite（引擎级支持，随核心库能力）
+| 数据库 | 状态 | 说明 |
+|---|:---:|---|
+| MySQL | ✅ | 实测验证 |
+| Oracle | ✅ | 支持（含视图 / 函数 / 存储过程 DDL） |
+| PostgreSQL | ✅ | 支持 |
+| 达梦 DM | ✅ | 国产化 · 实测验证 |
+| 瀚高 HighGo | ✅ | 国产化 · 实测验证 |
+| SQL Server / SQLite | 🔧 | 引擎级支持（随核心库能力） |
 
 ---
 
-## 架构总览
+## 🏗 架构总览
 
 ```
 ┌────────────────────┐      /prod-api/*       ┌────────────────────┐
@@ -105,7 +106,7 @@ DBDoc 把「生成数据库文档」从命令行工具升级为 **Web 平台**�
 
 ---
 
-## 快速开始
+## 🚀 快速开始
 
 ### 1. 构建核心库（首次需要）
 
@@ -122,7 +123,7 @@ mvn spring-boot:run
 ```
 
 - 服务地址：<http://localhost:8760>
-- 数据库：内置 H2 文件库（`data/screwweb.mv.db`，自动创建，重启不丢数据）
+- 数据库：内置 H2 文件库（`data/screwweb.mv.db` 自动创建，重启不丢数据）
 - H2 控制台：<http://localhost:8760/h2-console>（用户 `sa`，密码空）
 
 ### 3. 前端开发模式（可选，生产可直接用内嵌前端）
@@ -143,11 +144,11 @@ java -jar target/screw-web-*.jar
 
 ### 默认账号
 
-`admin / admin123`（首次登录后请立即在「个人中心 → 安全设置」修改密码）
+> `admin / admin123`（首次登录后请立即在「个人中心 → 安全设置」修改密码）
 
 ---
 
-## 目录结构
+## 📂 目录结构
 
 ```
 dbdoc/
@@ -164,7 +165,7 @@ dbdoc/
 
 ---
 
-## 安全说明（部署必读）
+## 🔒 安全说明（部署必读）
 
 - **传输加密**：前端生产构建默认开启 `VITE_GLOB_ENABLE_ENCRYPT=true`，对敏感接口（如修改密码）使用
   `RSA(encrypt-key 头) + AES/ECB` 加密请求体；后端 `EncryptRequestDecryptFilter` 自动解密。
@@ -177,7 +178,7 @@ dbdoc/
 
 ---
 
-## 致谢 / 来源声明
+## 🙏 致谢 / 来源声明
 
 - 后端文档生成核心基于 [smallbun/screw](https://github.com/smallbun/screw)（Apache License 2.0）增强，遵循其原许可证。
 - 前端基于 [jimuqu-admin-ui](https://gitee.com/chengliang4810/jimuqu-admin-ui) 定制。
